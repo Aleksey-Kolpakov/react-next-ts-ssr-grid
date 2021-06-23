@@ -1,0 +1,1 @@
+Учебный проект Next.js+TypeScript+CSS Grid Server side rendering
