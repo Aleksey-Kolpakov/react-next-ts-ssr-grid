@@ -1,0 +1,10 @@
+.button{
+    display: inline-block;
+    box-sizing: border-box;
+    padding: 10px;
+    cursor: pointer;
+    text-align: center;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+}
