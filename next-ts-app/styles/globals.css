@@ -25,5 +25,7 @@ a {
   --red: #de0000;
   --green: #1dc37e;
   --green-light: #c8f8e4;
+  --grey-light:#EBEBEB;
+  --grey:#B3C0D9;
   --font-family: "Noto Sans KR", sans-serif;
 }

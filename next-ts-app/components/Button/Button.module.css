@@ -26,3 +26,17 @@
     background-color: var(--black);
     color:var(--white);
 }
+
+.arrow{
+    display: inline-block;
+    margin-left: 10px;
+
+}
+.arrowDown{
+    transform: rotate(90deg);
+    transition: 0.2s;
+}
+.primary svg,
+.ghost:hover svg{
+    fill: var(--white);
+}
