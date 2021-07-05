@@ -1,12 +1,12 @@
 import Htag from '../components/Htag/Htag';
 import Button from '../components/Button/Button';
-import React from 'react';
+import React,{useState} from 'react';
 import P from '../components/P/P';
 import Tag from '../components/Tag/Tag';
 import Rating from '../components/Rating/Rating';
 
 export default function Home(): JSX.Element {
-
+const [rating,setRating]=useState(2);
   return (
     <div>
       Hello world
@@ -22,6 +22,7 @@ export default function Home(): JSX.Element {
       <Tag color="grey"href="/sadasd">some tag</Tag>
       <Tag >some tag</Tag>
       <Rating rating={3}/>
+      <Rating isEditable={true} rating={rating} setRating={setRating}/>
     </div>
   );
 }
