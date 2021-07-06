@@ -4,11 +4,12 @@ import React,{useState} from 'react';
 import P from '../components/P/P';
 import Tag from '../components/Tag/Tag';
 import Rating from '../components/Rating/Rating';
+import {withLayout} from '../layout/Layout';
 
-export default function Home(): JSX.Element {
+function Home(): JSX.Element {
 const [rating,setRating]=useState(2);
   return (
-    <div>
+    <>
       Hello world
       <Htag tag='h1'>Some title</Htag>
       <Button className="some class" appearence="primary" arrow='right'>Кнопка</Button>
@@ -23,6 +24,8 @@ const [rating,setRating]=useState(2);
       <Tag >some tag</Tag>
       <Rating rating={3}/>
       <Rating isEditable={true} rating={rating} setRating={setRating}/>
-    </div>
+    </>
   );
 }
+
+export default withLayout(Home);
