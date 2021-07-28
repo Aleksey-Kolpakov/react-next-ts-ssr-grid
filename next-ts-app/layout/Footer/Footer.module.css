@@ -13,25 +13,7 @@
 .footer a:hover{
 color: var(--green);
 }
-.rights {
-  /* grid-column-start: startLine;
-  grid-column-end: 2; */
-  margin: 0px;
-}
 
-.agreement {
-  /* grid-column-start: midle1;
-  grid-column-end: midle2; */
-}
-
-.policy {
-  /* grid-column-start: midle2;
-  grid-column-end: endLine; */
-}
-.footer a {
-  align-items: center;
-  justify-content: center;
-}
 @media (max-width: 765px) {
   .footer {
     grid-template-columns: minmax(320px, 1fr);
