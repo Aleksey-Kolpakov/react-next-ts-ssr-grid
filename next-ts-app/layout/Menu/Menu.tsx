@@ -73,7 +73,15 @@ const Menu = (): JSX.Element => {
     </>;
   };
   const buildThirdLevel = (pages:PageItem[],route:string) => {
-    return <></>;
+    return (
+pages.map(page=>(
+<a key={page.alias  } href={`/${route}/${page.alias}`} className={cn(styles.thirdLevel,{
+  [styles.thirdLevelActive]:true,
+})}>
+  {page.category}
+</a>
+))
+    );
   };
 
   return <div className={styles.menu}>{buildFirstLevel()}</div>;

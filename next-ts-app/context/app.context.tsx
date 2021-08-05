@@ -19,4 +19,4 @@ export const AppContextProvider=({menu,firstCategory,children}:PropsWithChildren
    return <AppContext.Provider value={{menu:menuState, firstCategory,setMenu}}>
         {children}
     </AppContext.Provider>;
-}
+};
