@@ -3,4 +3,29 @@ display: grid;
 grid-template-columns: 24px 1fr;
 gap: 20px;
 align-items: center;
+font-weight: 500;
+font-size: 18px;
+line-height: 25px;
+}
+
+
+.firstLevelActive,
+.firstLevel:hover{
+    color: var(--primary);
+}
+
+.firstLevelActive svg,
+.firstLevel:hover svg {
+    fill: var(--primary);
+}
+
+.secondCategory{
+    margin-bottom:10px;
+    cursor: pointer;
+    text-transform: uppercase;
+    color: #787D85;
+}
+
+.secondBlock{
+    
 }

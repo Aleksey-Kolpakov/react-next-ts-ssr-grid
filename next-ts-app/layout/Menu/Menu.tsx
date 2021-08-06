@@ -59,7 +59,7 @@ const Menu = (): JSX.Element => {
     );
   };
   const buildSecondLevel = (menuItem:FirstLevelMenuItem) => {
-    return <>
+    return <div className={styles.secondBlock}>
    { menu.map(m=>(
      <div key={m._id.secondCategory}>
       <div className={styles.secondLevel}>{m._id.secondCategory}</div>
@@ -70,7 +70,7 @@ const Menu = (): JSX.Element => {
       </div>
      </div>
    ))}
-    </>;
+    </div>;
   };
   const buildThirdLevel = (pages:PageItem[],route:string) => {
     return (
