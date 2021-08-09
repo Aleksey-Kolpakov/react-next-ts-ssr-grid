@@ -76,7 +76,7 @@ const Menu = (): JSX.Element => {
     return (
 pages.map(page=>(
 <a key={page.alias  } href={`/${route}/${page.alias}`} className={cn(styles.thirdLevel,{
-  [styles.thirdLevelActive]:true,
+  [styles.thirdLevelActive]:false,
 })}>
   {page.category}
 </a>
