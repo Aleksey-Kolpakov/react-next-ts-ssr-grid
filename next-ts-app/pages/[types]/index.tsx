@@ -1,15 +1,16 @@
 import axios from "axios";
 import React from "react";
-import { GetStaticPaths, GetStaticProps } from "next";
+import { GetStaticPaths, GetStaticProps, GetStaticPropsContext } from "next";
 import { MenuItem } from "../../interfaces/menu.interface";
 import { withLayout } from "../../layout/Layout";
 import { firstLevelMenu } from "../../helpers/helpers";
+import { ParsedUrlQuery } from "querystring";
 
 
-function Type(): JSX.Element {
+function Type({firstCategory}:TypeProps): JSX.Element {
   return (
     <>
-Type
+Type {firstCategory}
     </>
   );
 }
@@ -24,21 +25,30 @@ export const getStaticPaths: GetStaticPaths = async () => {
   };
 
   
+export const getStaticProps: GetStaticProps<TypeProps> = async ({params}: GetStaticPropsContext<ParsedUrlQuery>) => {
+  if (!params) {
+    return {
+      notFound: true,
+    };
+  }const firstCategoryItem=firstLevelMenu.find(meny=>meny.route==params.type);
+  if (!firstCategoryItem) {
+    return {
+      notFound: true,
+    };
+  }
 
-export const getStaticProps: GetStaticProps<HomeProps> = async () => {
-  const firstCategory = 0;
   const { data: menu } = await axios.post<MenuItem[]>(
-    process.env.NEXT_PUBLIC_DOMAIN + "/api/top-page/find",{firstCategory}
+    process.env.NEXT_PUBLIC_DOMAIN + "/api/top-page/find",{firstCategory:firstCategoryItem.id,}
   );
   return {
     props: {
       menu,
-      firstCategory,
+      firstCategory:firstCategoryItem.id,
     },
   };
 };
 
-interface HomeProps extends Record<string,unknown> {
+interface TypeProps extends Record<string,unknown> {
   menu:MenuItem[],
   firstCategory:number
 }
