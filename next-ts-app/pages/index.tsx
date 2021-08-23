@@ -9,8 +9,14 @@ import { withLayout } from "../layout/Layout";
 import { GetStaticProps } from "next";
 import { MenuItem } from "../interfaces/menu.interface";
 
+
 function Home({menu}:HomeProps): JSX.Element {
   const [rating, setRating] = useState(2);
+
+axios.post<MenuItem[]>(
+        process.env.NEXT_PUBLIC_DOMAIN + "/api/top-page/find",{firstCategory:"Courses"}
+    ).then(data=> console.log(data));
+
   return (
     <>
       Hello world

@@ -30,7 +30,8 @@ export const getStaticProps: GetStaticProps<TypeProps> = async ({params}: GetSta
     return {
       notFound: true,
     };
-  }const firstCategoryItem=firstLevelMenu.find(meny=>meny.route==params.type);
+  }
+  const firstCategoryItem=firstLevelMenu.find(meny=>meny.route==params.type);
   if (!firstCategoryItem) {
     return {
       notFound: true,
@@ -49,6 +50,6 @@ export const getStaticProps: GetStaticProps<TypeProps> = async ({params}: GetSta
 };
 
 interface TypeProps extends Record<string,unknown> {
-  menu:MenuItem[],
-  firstCategory:number
+  menu:MenuItem[];
+  firstCategory:number;
 }
