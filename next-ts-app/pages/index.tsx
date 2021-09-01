@@ -1,14 +1,9 @@
 import axios from "axios";
-import Htag from "../components/Htag/Htag";
-import Button from "../components/Button/Button";
 import React, { useState } from "react";
-import P from "../components/P/P";
-import Tag from "../components/Tag/Tag";
-import Rating from "../components/Rating/Rating";
 import { withLayout } from "../layout/Layout";
 import { GetStaticProps } from "next";
 import { MenuItem } from "../interfaces/menu.interface";
-
+import{Htag,Button,P,Tag,Rating} from "../components"
 
 function Home({menu}:HomeProps): JSX.Element {
   const [rating, setRating] = useState(2);

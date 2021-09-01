@@ -4,7 +4,7 @@ import { RatingProps } from "./Rating.props";
 import cn from "classnames";
 import StarIcon from "./star.svg";
 
-const Rating = ({
+export const Rating = ({
   isEditable = false,
   rating,
   setRating,
@@ -72,4 +72,4 @@ const Rating = ({
   );
 };
 
-export default Rating;
+

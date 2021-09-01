@@ -3,7 +3,7 @@ import styles from "./Tag.module.css";
 import { PProps } from "./Tag.props";
 import cn from "classnames";
 
-const Tag = ({
+export const Tag = ({
   size = "m",
   color="ghost",
   children,
@@ -36,4 +36,4 @@ const Tag = ({
   );
 };
 
-export default Tag;
+

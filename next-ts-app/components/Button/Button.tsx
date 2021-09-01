@@ -4,7 +4,7 @@ import {ButtonProps} from './Button.props';
 import cn from 'classnames';
 import ArrowIcon from './arrow.svg';
 
-const Button = ({appearence,children,arrow='none',className,...props}:ButtonProps):JSX.Element => {
+export const Button = ({appearence,children,arrow='none',className,...props}:ButtonProps):JSX.Element => {
     return (
         <>
         <button className={cn(styles.button,className,{
@@ -26,4 +26,3 @@ const Button = ({appearence,children,arrow='none',className,...props}:ButtonProp
     );
 };
 
-export default Button;

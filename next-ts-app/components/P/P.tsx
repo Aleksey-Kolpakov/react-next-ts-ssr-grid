@@ -4,7 +4,7 @@ import {PProps} from './P.props';
 import cn from 'classnames';
 
 
-const P = ({size='m',children,className,...props}:PProps):JSX.Element => {
+export const P = ({size='m',children,className,...props}:PProps):JSX.Element => {
     return (
         <>
 <p className={cn(styles.p,className,{
@@ -18,4 +18,3 @@ const P = ({size='m',children,className,...props}:PProps):JSX.Element => {
     );
 };
 
-export default P;

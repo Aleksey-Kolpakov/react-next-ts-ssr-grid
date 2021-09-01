@@ -2,7 +2,7 @@ import React from 'react';
 import { HtagProps } from './Htag.props';
 import styles from './Htag.module.css';
 
-const Htag = ({tag,children}:HtagProps):JSX.Element => {
+export const Htag = ({tag,children}:HtagProps):JSX.Element => {
     return (
         <>
        { tag=='h1' &&   <h1 className={styles.h1}>{children}</h1>}
@@ -12,4 +12,3 @@ const Htag = ({tag,children}:HtagProps):JSX.Element => {
     );
 };
 
-export default Htag;
