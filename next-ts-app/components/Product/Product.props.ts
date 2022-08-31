@@ -1,3 +1,4 @@
+
 import { DetailedHTMLProps, HTMLAttributes } from 'react';
 import { ProductModel } from '../../interfaces/product.interface';
 

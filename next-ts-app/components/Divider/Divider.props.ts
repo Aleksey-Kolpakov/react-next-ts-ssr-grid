@@ -1,8 +1,6 @@
 
-import { DetailedHTMLProps, HTMLAttributes, ReactNode } from "react";
+import { DetailedHTMLProps, HTMLAttributes } from 'react';
 
+export interface DividerProps extends DetailedHTMLProps<HTMLAttributes<HTMLHRElement>, HTMLHRElement> {
 
-export interface PProps extends DetailedHTMLProps<HTMLAttributes<HTMLParagraphElement>,HTMLParagraphElement>{
-    children:ReactNode,
-    size?: 's'|'m'|'l',
 }
