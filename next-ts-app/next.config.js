@@ -1,38 +1,29 @@
 module.exports = {
-  images: {
+	images: {
 		domains: ['courses-top.ru']
 	},
-  webpack(config) {
-    config.module.rules.push({
-      test: /\.svg?$/,
+	webpack(config, options) {
+		config.module.rules.push({
+			loader: '@svgr/webpack',
+			issuer: /\.[jt]sx?$/,
+			options: {
+				prettier: false,
+				svgo: true,
+				svgoConfig: {
+					plugins: [{
+						name: 'preset-default',
+						params: {
+							override: {
+								removeViewBox: false
+							}
+						}
+					}],
+				},
+				titleProp: true,
+			},
+			test: /\.svg$/,
+		});
 
-      oneOf: [
-        {
-          use: [
-            {
-              loader: "@svgr/webpack",
-
-              options: {
-                prettier: false,
-
-                svgo: true,
-
-                svgoConfig: {
-                  plugins: [{ removeViewBox: false }],
-                },
-
-                titleProp: true,
-              },
-            },
-          ],
-
-          issuer: {
-            and: [/\.(ts|tsx|js|jsx|md|mdx)$/],
-          },
-        },
-      ],
-    });
-
-    return config;
-  },
+		return config;
+	},
 };

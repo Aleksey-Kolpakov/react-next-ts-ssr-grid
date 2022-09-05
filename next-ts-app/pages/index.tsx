@@ -1,81 +1,49 @@
-import axios from "axios";
-import React, { useState } from "react";
-import { withLayout } from "../layout/Layout";
-import { GetStaticProps } from "next";
-import { MenuItem } from "../interfaces/menu.interface";
-import{Htag,Button,P,Tag,Rating} from "../components"
+import { GetStaticProps } from 'next';
+import React, { useState } from 'react';
+import { Button, Htag, Input, P, Rating, Tag, Textarea } from '../components';
+import { withLayout } from '../layout/Layout';
+import axios from 'axios';
+import { MenuItem } from '../interfaces/menu.interface';
+import { API } from '../helpers/api';
 
-function Home({menu}:HomeProps): JSX.Element {
-  const [rating, setRating] = useState(2);
+function Home({ menu }: HomeProps): JSX.Element {
+	const [rating, setRating] = useState<number>(4);
 
-axios.post<MenuItem[]>(
-        process.env.NEXT_PUBLIC_DOMAIN + "/api/top-page/find",{firstCategory:"Courses"}
-    ).then(data=> console.log(data));
-
-  return (
-    <>
-      Hello world
-      <Htag tag="h1">Some title</Htag>
-      <Button className="some class" appearence="primary" arrow="right">
-        Кнопка
-      </Button>
-      <Button appearence="ghost" arrow="down">
-        Кнопка 2
-      </Button>
-      <P size="s">
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Corrupti
-        voluptas libero sed aspernatur laudantium obcaecati ipsum neque odit
-        velit. Accusantium quia illo maiores distinctio molestias? Ratione
-        commodi eaque quia inventore?
-      </P>
-      <P>
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Corrupti
-        voluptas libero sed aspernatur laudantium obcaecati ipsum neque odit
-        velit. Accusantium quia illo maiores distinctio molestias? Ratione
-        commodi eaque quia inventore?
-      </P>
-      <P size="l">
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Corrupti
-        voluptas libero sed aspernatur laudantium obcaecati ipsum neque odit
-        velit. Accusantium quia illo maiores distinctio molestias? Ratione
-        commodi eaque quia inventore?
-      </P>
-      <Tag color="ghost" size="m">
-        some tag
-      </Tag>
-      <Tag color="red" size="s">
-        some tag
-      </Tag>
-      <Tag color="green">some tag</Tag>
-      <Tag color="grey" href="/sadasd">
-        some tag
-      </Tag>
-      <Tag>some tag</Tag>
-      <Rating rating={3} />
-      <Rating isEditable={true} rating={rating} setRating={setRating} />
-      <ul>
-        {menu.map(element=>(<li key={element._id.secondCategory}>{element._id.secondCategory}</li>))}
-      </ul>
-    </>
-  );
+	return (
+		<>
+			<Htag tag='h1'>Заголовок</Htag>
+			<Button appearance='primary' arrow='right'>Кнопка</Button>
+			<Button appearance='ghost' arrow='down'>Кнопка</Button>
+			<P size='l'>Большой</P>
+			<P>Средний</P>
+			<P size='s'>Маленький</P>
+			<Tag size='s'>Ghost</Tag>
+			<Tag size='m' color='red'>Red</Tag>
+			<Tag size='s' color='green'>Green</Tag>
+			<Tag color='primary'>Green</Tag>
+			<Rating rating={rating} isEditable setRating={setRating} />
+			<Input placeholder='тест' />
+			<Textarea placeholder='тест area' />
+		</>
+	);
 }
 
 export default withLayout(Home);
 
 export const getStaticProps: GetStaticProps<HomeProps> = async () => {
-  const firstCategory = 0;
-  const { data: menu } = await axios.post<MenuItem[]>(
-    process.env.NEXT_PUBLIC_DOMAIN + "/api/top-page/find",{firstCategory}
-  );
-  return {
-    props: {
-      menu,
-      firstCategory,
-    },
-  };
+	const firstCategory = 0;
+	const { data: menu } = await axios.post<MenuItem[]>(API.topPage.find, {
+		firstCategory
+	});
+	return {
+		props: {
+			menu,
+			firstCategory
+		}
+	};
 };
 
-interface HomeProps extends Record<string,unknown> {
-  menu:MenuItem[],
-  firstCategory:number
+interface HomeProps extends Record<string, unknown> {
+	menu: MenuItem[];
+	firstCategory: number;
 }
